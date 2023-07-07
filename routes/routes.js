@@ -5,8 +5,13 @@ const router = express.Router();
 //Post Method
 router.post('/post', async (req, res) => {
     const data = new Model({
+        id: req.body.id,
         name: req.body.name,
-        age: req.body.age
+        color: req.body.color,
+        price: req.body.price,
+        category: req.body.category,
+        brand: req.body.brand,
+        photo: req.body.photo
     })
 
     try {
@@ -16,7 +21,7 @@ router.post('/post', async (req, res) => {
     catch (error) {
         res.status(400).json({ message: error.message })
     }
-}) 
+})
 
 //Get all Method
 router.get('/getAll', async (req, res) => {
